@@ -8,8 +8,32 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'perfil-student',
+    loadChildren: () => import('./perfil-student/perfil-student.module').then( m => m.PerfilStudentPageModule)
+  },
+  {
+    path: 'view-student',
+    loadChildren: () => import('./view-student/view-student.module').then( m => m.ViewStudentPageModule)
+  },
+  {
+    path: 'new-student',
+    loadChildren: () => import('./new-student/new-student.module').then( m => m.NewStudentPageModule)
+  },
+  {
+    path: 'login-student',
+    loadChildren: () => import('./login-student/login-student.module').then( m => m.LoginStudentPageModule)
+  },
+  {
+    path: 'modify-student',
+    loadChildren: () => import('./modify-student/modify-student.module').then( m => m.ModifyStudentPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
 ];
 
