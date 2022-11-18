@@ -56,6 +56,16 @@ export class StudentService {
     return item;
    }
 
+   public getStudentByEmail(eml:string): Student{
+    let item : Student;
+    item = this.students.find(
+      (student)=>{
+        return student.email==eml;
+      }
+    );
+    return item;
+   }
+
    public removeStudent(pos:number){
     this.students.splice(pos,1);
    }
@@ -63,4 +73,30 @@ export class StudentService {
    public newStudent(student:Student):void{
     this.students.push(student);
    }
+
+   public modifyStudent(data):void{
+      console.log(data);
+      try{
+        let item = this.getStudentByControlNumber(data.controlNumber);
+        item.name = data.name;
+        item.curp = data.curp;
+        item.age = data.age;
+        item.nip = data.nip;
+        item.email = data.email;
+        item.career = data.career;
+        item.photo = data.photo;
+      }catch(err){
+        console.log(err);
+      }
+   }
+
+   public studentLogin(email: String, nip: number): Student{
+    let item: Student;
+    item = this.students.find(
+      (student)=> {
+        return student.email==email && student.nip==nip;
+      }
+    );
+    return item;
+  }
 }

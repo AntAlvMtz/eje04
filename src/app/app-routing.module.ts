@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./new-student/new-student.module').then( m => m.NewStudentPageModule)
   },
   {
-    path: 'login-student',
-    loadChildren: () => import('./login-student/login-student.module').then( m => m.LoginStudentPageModule)
-  },
-  {
     path: 'modify-student',
     loadChildren: () => import('./modify-student/modify-student.module').then( m => m.ModifyStudentPageModule)
   },

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>newStudent</ion-title>
+    <ion-title>Nuevo Estudiante</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -46,9 +46,22 @@
               </div>
             </ng-container>
           </div>
+
+          <ion-item>
+            <ion-label position="floating">Edad</ion-label>
+            <ion-input type="number" formControlName="age"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let item of validatorMessages['age']">
+              <div class="errormessages" *ngIf="(myForm.get('age').dirty || myForm.get('age').touched) && myForm.get('age').hasError(item.type)">
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+  
           <ion-item>
             <ion-label position="floating">NIP</ion-label>
-            <ion-input formControlName="nip"></ion-input>
+            <ion-input type="number" formControlName="nip" ></ion-input>
           </ion-item>
           <div>
             <ng-container *ngFor="let item of validatorMessages['nip']">
@@ -91,7 +104,7 @@
           </div>
           <ion-item>
             <ion-label position="floating">URL de la Foto</ion-label>
-            <ion-input formControlName="url"></ion-input>
+            <ion-input formControlName="photo"></ion-input>
           </ion-item>
           <div>
             <ng-container *ngFor="let item of validatorMessages['url']">

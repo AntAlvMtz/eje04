@@ -23,10 +23,11 @@ export class NewStudentPage implements OnInit {
       controlnumber:["",Validators.compose([Validators.required,Validators.minLength(8), Validators.maxLength(8), Validators.pattern('^[0-9]+$')])],
       name:["",Validators.required],
       curp:["",Validators.compose([Validators.required,Validators.minLength(18), Validators.maxLength(18), Validators.pattern('^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]$')])],
+      age:["",Validators.compose([Validators.required,Validators.pattern('^[0-9]+$')])],
       nip:["",Validators.compose([Validators.required,Validators.min(10),Validators.max(9999),Validators.pattern('^[0-9]+$')])],
       email:["",Validators.compose([Validators.required,Validators.email])],
       career:["",Validators.required],
-      url:["",Validators.compose([Validators.required,Validators.pattern(/https?:\/\/[\w\-\.]+\.\w{2,5}\/?\S*/)])]
+      photo:["",Validators.compose([Validators.required,Validators.pattern(/https?:\/\/[\w\-\.]+\.\w{2,5}\/?\S*/)])]
     });
     this.validatorMessages = {
       controlnumber: [
@@ -44,6 +45,10 @@ export class NewStudentPage implements OnInit {
         { type: 'maxlength', message: "La CURP debe de ser de máximo 18 caracteres" },
         { type: 'pattern', message: "Se ha escrito de manera incorrecta la CURP" }
       ],
+      age: [
+        { type: 'required', message: "Edad obligatoria" },
+        { type: 'pattern', message: "La edad debe de ser numérico" }
+      ],
       nip: [
         { type: 'required', message: "El NIP es obligatoriao" },
         { type: 'min', message: "El NIP debe ser mayor a 9" },
@@ -57,7 +62,7 @@ export class NewStudentPage implements OnInit {
       career: [
         { type: 'required', message: "Carrera obligatoria" }
       ],
-      url: [
+      photo: [
         { type: 'required', message: "URL obligatoria" },
         { type: 'pattern', message: "URL incorrecta" }
       ]

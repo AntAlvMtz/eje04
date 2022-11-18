@@ -61,7 +61,7 @@ export class HomePage {
 
   public getStudentByControlNumber(cn:string): void{
     this.router.navigate(['/view-student'],{
-      queryParams: {controlnumber:cn}
+      queryParams: {controlNumber:cn}
     });
   }
 
